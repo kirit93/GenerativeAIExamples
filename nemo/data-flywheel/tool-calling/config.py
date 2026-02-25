@@ -8,8 +8,8 @@ NIM_URL = "http://nim.test"
 WORKSPACE = "default"
 
 # Base model for fine-tuning
-BASE_MODEL = "nvidia/nemotron-nano-llama-3.1-8b"
-BASE_MODEL_URI = "hf://nvidia/nemotron-nano-llama-3.1-8b"
+BASE_MODEL = "nvidia/nemotron-3-nano-30b-a3b"
+BASE_MODEL_URI = "hf://nvidia/nemotron-3-nano-30b-a3b"
 
 # Customization target and job naming
 TARGET_NAME = "nemotron-nano-tool-calling"
@@ -21,7 +21,7 @@ EVAL_FILESET = "xlam-eval"
 DD_TRAINING_FILESET = "dd-tool-calling-training"
 
 # Content safety model for guardrails
-CONTENT_SAFETY_MODEL = "nvidia/llama-3.1-nemoguard-8b-content-safety"
+CONTENT_SAFETY_MODEL = "nvidia/nemotron-content-safety-reasoning-4b"
 
 # (Optional) To observe training with WandB
 WANDB_API_KEY = ""

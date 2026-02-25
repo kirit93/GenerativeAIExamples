@@ -27,7 +27,7 @@ To effectively perform tool calling, an LLM must:
 - Extract and populate the appropriate parameters from a user's natural language query
 - In multi-turn and multi-step use cases, plan and chain multiple actions together
 
-As the number of tools and their complexity increases, customization becomes critical. Smaller models like **Nemotron Nano (8B)** can achieve accuracy comparable to much larger models through parameter-efficient techniques like [LoRA](https://arxiv.org/abs/2106.09685).
+As the number of tools and their complexity increases, customization becomes critical. Smaller models like **[Nemotron 3 Nano](https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b)** can achieve accuracy comparable to much larger models through parameter-efficient techniques like [LoRA](https://arxiv.org/abs/2106.09685).
 
 #### Tool calling with base model (before fine-tuning)
 
@@ -35,7 +35,7 @@ As the number of tools and their complexity increases, customization becomes cri
 curl "$NIM_URL/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "nvidia/nemotron-nano-llama-3.1-8b",
+    "model": "nvidia/nemotron-3-nano-30b-a3b",
     "messages": [{"role": "user", "content": "What will the weather be in Berlin on November 7, 2025?"}],
     "tools": [{"type": "function", "function": {"name": "get_weather", "description": "Get the weather for a given location and date.", "parameters": {"type": "object", "properties": {"location": {"type": "string"}, "date": {"type": "string"}}, "required": ["location", "date"]}}}],
     "tool_choice": "auto"
@@ -77,7 +77,7 @@ The following notebooks are included:
 
 1. [**Data Preparation and Baseline**](./1_data_preparation.ipynb) — Download xLAM dataset, convert to OpenAI format, upload to filesets, measure baseline accuracy
 2. [**Synthetic Data with Data Designer**](./2_data_designer.ipynb) — Generate diverse, high-quality tool calling training data using NMP Data Designer
-3. [**Fine-Tuning and Inference**](./3_finetuning_and_inference.ipynb) — LoRA fine-tune Nemotron Nano and test inference
+3. [**Fine-Tuning and Inference**](./3_finetuning_and_inference.ipynb) — LoRA fine-tune Nemotron 3 Nano and test inference
 4. [**Model Evaluation**](./4_model_evaluation.ipynb) — Compare baseline vs fine-tuned accuracy
 5. [**Safety Guardrails**](./5_adding_safety_guardrails.ipynb) — Add content safety guardrails for production deployment
 
@@ -87,15 +87,15 @@ The following notebooks are included:
 
 You will need NVIDIA GPUs allocated as follows:
 
-- **Fine-tuning:** GPU(s) for fine-tuning Nemotron Nano (8B) using NeMo Customizer
-- **Inference:** GPU(s) for deploying the Nemotron Nano NIM
+- **Fine-tuning:** GPU(s) for fine-tuning Nemotron 3 Nano using NeMo Customizer
+- **Inference:** GPU(s) for deploying the Nemotron 3 Nano NIM
 - **(Optional)** Additional GPU for the content safety NIM (or use [build.nvidia.com](https://build.nvidia.com/))
 
 Refer to the [platform prerequisites and installation guide](https://docs.nvidia.com/nemo/microservices/latest/get-started/platform-prereq.html) to deploy NeMo Microservices.
 
-### Deploy Nemotron Nano NIM
+### Deploy Nemotron 3 Nano NIM
 
-Deploy the Nemotron Nano NIM for inference. Refer to the [NIM deployment instructions](https://docs.nvidia.com/nemo/microservices/latest/get-started/tutorials/deploy-nims.html) for details.
+Deploy the Nemotron 3 Nano NIM for inference. Refer to the [NIM deployment instructions](https://docs.nvidia.com/nemo/microservices/latest/get-started/tutorials/deploy-nims.html) for details.
 
 ### Get Access to the xLAM Dataset
 
