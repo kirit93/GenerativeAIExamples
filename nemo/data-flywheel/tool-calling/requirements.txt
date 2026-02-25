@@ -1,4 +1,4 @@
-nemo-microservices
+nemo-microservices[data-designer]
 datasets
 openai
 jupyterlab
