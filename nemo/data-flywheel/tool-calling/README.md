@@ -32,7 +32,7 @@ As the number of tools and their complexity increases, customization becomes cri
 #### Tool calling with base model (before fine-tuning)
 
 ```bash
-curl "$NEMO_URL/v1/chat/completions" \
+curl "$NIM_URL/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "nvidia/nemotron-nano-llama-3.1-8b",
@@ -100,7 +100,11 @@ Deploy the Nemotron Nano NIM for inference. Refer to the [NIM deployment instruc
 ### Get Access to the xLAM Dataset
 
 - Go to [xlam-function-calling-60k](https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k) and request access (granted instantly)
-- Obtain your [Hugging Face access token](https://huggingface.co/docs/hub/en/security-tokens)
+- Log in with your Hugging Face token so the `datasets` library can download the data:
+
+  ```bash
+  huggingface-cli login
+  ```
 
 ## Get Started
 
