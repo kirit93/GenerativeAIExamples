@@ -83,21 +83,28 @@ The following notebooks are included:
 
 ## Prerequisites
 
-### Deploy NeMo Microservices
+### 1. Deploy NeMo Microservices
 
-You will need NVIDIA GPUs allocated as follows:
+You need a running NMP deployment with GPU resources. Follow one of:
 
+- **Quickstart (recommended for first-time users):** `pip install nemo-microservices && nmp quickstart up`. See the [quickstart guide](https://docs.nvidia.com/nemo/microservices/latest/get-started/quickstart.html).
+- **Minikube:** See the [Minikube setup guide](https://docs.nvidia.com/nemo/microservices/latest/get-started/setup/minikube/minikube-script.html).
+- **Production Kubernetes:** See the [platform prerequisites](https://docs.nvidia.com/nemo/microservices/latest/get-started/setup/requirements.html) and [Helm chart installation](https://docs.nvidia.com/nemo/microservices/latest/set-up/deploy-as-platform/install-platform-helm-chart.html).
+
+GPU allocation:
 - **Fine-tuning:** GPU(s) for fine-tuning Nemotron 3 Nano using NeMo Customizer
 - **Inference:** GPU(s) for deploying the Nemotron 3 Nano NIM
-- **(Optional)** Additional GPU for the content safety NIM (or use [build.nvidia.com](https://build.nvidia.com/))
+- **(Optional)** Additional GPU for the content safety NIM, or use it via [build.nvidia.com](https://build.nvidia.com/nvidia/nemotron-content-safety-reasoning-4b)
 
-Refer to the [platform prerequisites and installation guide](https://docs.nvidia.com/nemo/microservices/latest/get-started/platform-prereq.html) to deploy NeMo Microservices.
+### 2. Deploy Nemotron 3 Nano NIM
 
-### Deploy Nemotron 3 Nano NIM
+Deploy the [Nemotron 3 Nano](https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b) NIM for inference. Follow the [NIM deployment tutorial](https://docs.nvidia.com/nemo/microservices/latest/get-started/tutorials/deploy-nims.html). Deployment takes approximately 10 minutes.
 
-Deploy the Nemotron 3 Nano NIM for inference. Refer to the [NIM deployment instructions](https://docs.nvidia.com/nemo/microservices/latest/get-started/tutorials/deploy-nims.html) for details.
+### 3. Get an NVIDIA API Key
 
-### Get Access to the xLAM Dataset
+Notebook 2 (Data Designer) uses [build.nvidia.com](https://build.nvidia.com) for synthetic data generation. Create a free account and generate an API key from any model page.
+
+### 4. Get Access to the xLAM Dataset
 
 - Go to [xlam-function-calling-60k](https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k) and request access (granted instantly)
 - Log in with your Hugging Face token so the `datasets` library can download the data:
