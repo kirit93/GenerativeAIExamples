@@ -106,8 +106,8 @@ Notebook 2 (Data Designer) uses [build.nvidia.com](https://build.nvidia.com) for
 
 ### 4. Get Access to the xLAM Dataset
 
-- Go to [xlam-function-calling-60k](https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k) and request access (granted instantly)
-- Log in with your Hugging Face token so the `datasets` library can download the data:
+- Go to [xlam-function-calling-60k](https://huggingface.co/datasets/Salesforce/xlam-function-calling-60k) and **accept the terms of use** through the HuggingFace UI
+- Log in so the `datasets` library can download the data:
 
   ```bash
   huggingface-cli login
